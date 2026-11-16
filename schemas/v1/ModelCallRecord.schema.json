@@ -1,0 +1,132 @@
+{
+  "$defs": {
+    "CallStatus": {
+      "enum": [
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "title": "CallStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attempt": {
+      "maximum": 2,
+      "minimum": 1,
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "call_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Call Id",
+      "type": "string"
+    },
+    "completion_tokens": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Completion Tokens",
+      "type": "integer"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "maxLength": 16384,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "error_type": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Type"
+    },
+    "graph_run_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Graph Run Id",
+      "type": "string"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "title": "Latency Ms",
+      "type": "integer"
+    },
+    "profile_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Profile Sha256",
+      "type": "string"
+    },
+    "prompt_tokens": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Prompt Tokens",
+      "type": "integer"
+    },
+    "request_evidence_ref": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Request Evidence Ref",
+      "type": "string"
+    },
+    "response_evidence_ref": {
+      "anyOf": [
+        {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Response Evidence Ref"
+    },
+    "schema_version": {
+      "const": "model-call-v1",
+      "default": "model-call-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "HEALTHCHECK",
+        "WARMUP",
+        "CALL_MODEL"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/CallStatus"
+    }
+  },
+  "required": [
+    "call_id",
+    "graph_run_id",
+    "profile_sha256",
+    "stage",
+    "attempt",
+    "request_evidence_ref",
+    "latency_ms",
+    "status"
+  ],
+  "title": "ModelCallRecord",
+  "type": "object"
+}

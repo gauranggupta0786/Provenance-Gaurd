@@ -1,0 +1,150 @@
+{
+  "$defs": {
+    "ApprovalDecision": {
+      "enum": [
+        "approve",
+        "deny"
+      ],
+      "title": "ApprovalDecision",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "approver_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Approver Id",
+      "type": "string"
+    },
+    "audience": {
+      "const": "gateway",
+      "title": "Audience",
+      "type": "string"
+    },
+    "consumed": {
+      "default": false,
+      "title": "Consumed",
+      "type": "boolean"
+    },
+    "consumed_at": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Consumed At"
+    },
+    "decision": {
+      "$ref": "#/$defs/ApprovalDecision"
+    },
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Digest",
+      "type": "string"
+    },
+    "expires_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Expires At",
+      "type": "string"
+    },
+    "issued_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Issued At",
+      "type": "string"
+    },
+    "key_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Key Id",
+      "type": "string"
+    },
+    "nonce": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Nonce",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "principal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "proposal_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Proposal Digest",
+      "type": "string"
+    },
+    "proposal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "renderer_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Renderer Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "approval-record-v1",
+      "default": "approval-record-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Session Id",
+      "type": "string"
+    },
+    "signature": {
+      "maxLength": 4096,
+      "minLength": 16,
+      "title": "Signature",
+      "type": "string"
+    }
+  },
+  "required": [
+    "approval_id",
+    "proposal_id",
+    "proposal_digest",
+    "session_id",
+    "principal_id",
+    "approver_id",
+    "decision",
+    "issued_at",
+    "expires_at",
+    "nonce",
+    "audience",
+    "policy_version",
+    "renderer_version",
+    "key_id",
+    "digest",
+    "signature"
+  ],
+  "title": "ApprovalRecord",
+  "type": "object"
+}

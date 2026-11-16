@@ -1,0 +1,38 @@
+{
+  "architecture": "qwen3",
+  "capabilities": [
+    "completion",
+    "thinking",
+    "tools"
+  ],
+  "default_parameters_text": "top_p                          0.95\nrepeat_penalty                 1\nstop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"\ntemperature                    0.6\ntop_k                          20",
+  "details": {
+    "families": [
+      "qwen3"
+    ],
+    "family": "qwen3",
+    "format": "gguf",
+    "parameter_size": "14.8B",
+    "parent_model": "",
+    "quantization_level": "Q4_K_M"
+  },
+  "has_native_tools": true,
+  "has_thinking": true,
+  "license_head": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n  ",
+  "license_sha256": "d18a5cc71b84bc4af394a31116bd3932b42241de70c77d2b76d69a314ec8aa12",
+  "modelfile_sha256": "4deeffc5c991f15c3c09268f52e5c5d6ca7a4cf4a6d0f861722a526ca9304061",
+  "modified_at": "2026-10-13T06:23:54.939491743+05:30",
+  "ollama_tag": "qwen3:14b",
+  "parser": null,
+  "profile_sha256": "baf24d0f90296a9d24a82912e1e43854e50be1def6032c5d6a9b5ffbce18e6c2",
+  "renderer": null,
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "qwen3-14b",
+  "template_is_passthrough": false,
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4"
+}

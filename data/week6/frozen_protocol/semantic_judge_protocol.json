@@ -1,0 +1,36 @@
+{
+  "allowed_use": "genuinely semantic quality only; never confidentiality, integrity, authorization, replay, or tamper labels",
+  "calibration_set": [],
+  "context_length": 4096,
+  "enabled": false,
+  "examples": [],
+  "generation": {
+    "max_output_tokens": 256,
+    "seed": 42,
+    "temperature": 0.0
+  },
+  "model": null,
+  "output_json_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "reason": {
+        "maxLength": 1000,
+        "type": "string"
+      },
+      "score": {
+        "maximum": 5,
+        "minimum": 1,
+        "type": "integer"
+      }
+    },
+    "required": [
+      "score",
+      "reason"
+    ],
+    "type": "object"
+  },
+  "reason": "all frozen security and task outcomes are answerable from final state and signed evidence",
+  "rubric": "Assess semantic helpfulness only after deterministic security evaluation.",
+  "schema_version": "semantic-judge-protocol-v1",
+  "thinking_mode": "disabled"
+}

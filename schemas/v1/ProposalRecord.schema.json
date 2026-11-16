@@ -1,0 +1,180 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "properties": {
+    "arguments": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "maxProperties": 16,
+      "propertyNames": {
+        "maxLength": 160,
+        "minLength": 1
+      },
+      "title": "Arguments",
+      "type": "object"
+    },
+    "claimed_fields": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "maxProperties": 16,
+          "propertyNames": {
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Claimed Fields"
+    },
+    "created_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Created At",
+      "type": "string"
+    },
+    "digest": {
+      "anyOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Digest"
+    },
+    "key_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Key Id",
+      "type": "string"
+    },
+    "model_explanation": {
+      "anyOf": [
+        {
+          "maxLength": 16384,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Explanation"
+    },
+    "model_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "operation": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Operation",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "principal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "proposal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "high"
+      ],
+      "title": "Risk Level",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Session Id",
+      "type": "string"
+    },
+    "signature": {
+      "anyOf": [
+        {
+          "maxLength": 4096,
+          "minLength": 16,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Signature"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxItems": 64,
+      "minItems": 1,
+      "title": "Source Digests",
+      "type": "array"
+    },
+    "tool_name": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Tool Name",
+      "type": "string"
+    },
+    "user_goal_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "User Goal Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "proposal_id",
+    "session_id",
+    "principal_id",
+    "user_goal_hash",
+    "model_id",
+    "tool_name",
+    "operation",
+    "arguments",
+    "source_digests",
+    "policy_version",
+    "risk_level",
+    "created_at",
+    "key_id"
+  ],
+  "title": "ProposalRecord",
+  "type": "object"
+}

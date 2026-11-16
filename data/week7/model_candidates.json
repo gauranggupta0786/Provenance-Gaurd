@@ -1,0 +1,308 @@
+{
+  "schema_version": "week7-model-candidates-v1",
+  "note": "Expectations below are planning hints only. The pilot reads the real `capabilities` list from `ollama show` and that record, not this file, decides tool/thinking support. Licenses must be re-read from each model card before the matrix is frozen; use the term 'open-weight' unless the license clearly meets an open-source definition.",
+  "candidates": [
+    {
+      "slug": "qwen35-9b",
+      "ollama_tag": "qwen3.5:9b",
+      "family": "qwen35",
+      "vendor": "Alibaba (Qwen)",
+      "plan_entry": "Qwen3 or the currently installed Qwen3.5 8B-9B model",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card (Qwen releases have been Apache-2.0)",
+      "notes": "Already used for Weeks 1-6; has an existing Week 2 profile. Thinking must stay disabled for the cross-model comparison.",
+      "pilot_result": "Greedy decoding (temperature 0, thinking off) ran to the output cap on 6/12 development decode-and-act episodes (8192 cap); repeat_penalty 1.1 left 5/12 and vendor-style sampling 7/12 unfinished (cap 4096). Sampling changes do not fix it."
+    },
+    {
+      "slug": "llama31-8b",
+      "ollama_tag": "llama3.1:8b",
+      "family": "llama31",
+      "vendor": "Meta",
+      "plan_entry": "Llama 3.1 8B Instruct",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "Llama 3.1 Community License (custom, not an OSI open-source license) -> call it open-weight",
+      "notes": "Ollama's llama3.1 template supports native tools."
+    },
+    {
+      "slug": "gemma3-12b",
+      "ollama_tag": "gemma3:12b",
+      "family": "gemma3",
+      "vendor": "Google",
+      "plan_entry": "Gemma 3 12B IT",
+      "expected_tools": false,
+      "expected_thinking_toggle": false,
+      "license_note": "Gemma Terms of Use (custom) -> call it open-weight",
+      "notes": "A third-party compatibility table (Aug 2026) reports that no gemma3 tag exposes native tool calling in Ollama. Expect the preflight to FAIL; if it does, document the exclusion and decide on a substitute (see reserves).",
+      "pilot_result": "CONFIRMED on Ollama 0.40.2 (first pilot): capabilities lack 'tools'; excluded before episodes."
+    },
+    {
+      "slug": "mistral-nemo-12b",
+      "ollama_tag": "mistral-nemo:12b",
+      "family": "mistral-nemo",
+      "vendor": "Mistral AI / NVIDIA",
+      "plan_entry": "Mistral Nemo 12B Instruct",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (Apache-2.0 expected)",
+      "notes": "Mistral-style tool-call ids are strict (9 alphanumeric chars) on some servers; the role round-trip probe checks the pipeline's tool-result messages are accepted. First pilot ran the Q4_0 build (others Q4_K_M). Two protected episodes crashed on a project bug (get_unread_emails), now fixed; re-run required."
+    },
+    {
+      "slug": "phi4-14b",
+      "ollama_tag": "phi4:14b",
+      "family": "phi4",
+      "vendor": "Microsoft",
+      "plan_entry": "Phi-4 14B",
+      "expected_tools": false,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (MIT expected)",
+      "notes": "A third-party compatibility table (Aug 2026) reports phi4 has no tool support in Ollama (phi4-mini does). Expect the preflight to FAIL; document the exclusion or choose a substitute.",
+      "pilot_result": "CONFIRMED on Ollama 0.40.2 (first pilot): capabilities lack 'tools'; excluded before episodes."
+    }
+  ],
+  "reserves": [
+    {
+      "slug": "phi4-mini-3.8b",
+      "ollama_tag": "phi4-mini:3.8b",
+      "family": "phi4",
+      "vendor": "Microsoft",
+      "plan_entry": "Phi family substitute (phi4:14b has no tool support); much smaller than the other candidates",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (MIT expected)",
+      "notes": "A third-party table reports tool support. 3.8B vs 8-14B for the rest, so report it as a size-confounded fifth family or leave it out."
+    },
+    {
+      "slug": "gemma4-e4b",
+      "ollama_tag": "gemma4:e4b",
+      "family": "gemma4",
+      "vendor": "Google",
+      "plan_entry": "possible substitute for the Gemma slot",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card (reported as Apache-2.0)",
+      "notes": "Reported to support native tools and a configurable thinking mode in Ollama >= 0.20. Confirm tag and size with `ollama show` before pulling more than one Gemma 4 variant."
+    },
+    {
+      "slug": "gemma4-26b",
+      "ollama_tag": "gemma4:26b",
+      "family": "gemma4",
+      "vendor": "Google",
+      "plan_entry": "larger Gemma 4 option (mixture-of-experts)",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "Roughly 17-18 GB on disk; only pilot if the GPU has the VRAM and the supervisor accepts a model outside the 8-14B class."
+    },
+    {
+      "slug": "qwen3-14b",
+      "ollama_tag": "qwen3:14b",
+      "family": "qwen3",
+      "vendor": "Alibaba (Qwen)",
+      "plan_entry": "Qwen3 (the plan's first entry); candidate Qwen-family model if qwen3.5:9b is excluded",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "Tools + thinking per an Aug 2026 compatibility table. A third-party log mentions a Qwen3 think-mode passthrough bug in some Ollama versions; the thinking probe checks it on this server."
+    },
+    {
+      "slug": "granite33-8b",
+      "ollama_tag": "granite3.3:8b",
+      "family": "granite",
+      "vendor": "IBM",
+      "plan_entry": "additional tool-capable family in the 8B class (fourth/fifth family)",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (Apache-2.0 expected)",
+      "notes": "Listed as tool-capable in an Aug 2026 compatibility table. An older granite3.1-dense:8b is reported to narrate tool calls as text; the preflight and probes decide for this tag."
+    },
+    {
+      "slug": "granite4-tiny-h",
+      "ollama_tag": "granite4:tiny-h",
+      "family": "granite",
+      "vendor": "IBM",
+      "plan_entry": "candidate fourth family (Granite 4, hybrid mixture-of-experts, 7B total / 1B active)",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (Apache-2.0 expected)",
+      "notes": "Granite 4 lists tool calling as a design goal and uses a different template from Granite 3.3, which advertised tools but never emitted one on this server."
+    },
+    {
+      "slug": "granite4-small-h",
+      "ollama_tag": "granite4:small-h",
+      "family": "granite",
+      "vendor": "IBM",
+      "plan_entry": "candidate fourth family (Granite 4, 32B total / 9B active, about 19 GB at Q4)",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card (Apache-2.0 expected)",
+      "notes": "Larger Granite 4. Counts as the same family as tiny-h: at most one Granite variant can enter the matrix."
+    },
+    {
+      "slug": "command-r7b",
+      "ollama_tag": "command-r7b:latest",
+      "family": "cohere",
+      "vendor": "Cohere",
+      "plan_entry": "candidate fourth family (Command R7B, 7B)",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "CC-BY-NC (non-commercial): fine for research, state it when reporting; verify on model card",
+      "notes": "Listed as tool-capable. Its native format includes a thinking-style preamble; the thinking-state checks will show whether it leaks into content."
+    },
+    {
+      "slug": "hermes3-8b",
+      "ollama_tag": "hermes3:8b",
+      "family": "llama31",
+      "vendor": "Nous Research (fine-tune of Llama 3.1 8B)",
+      "plan_entry": "informational only: Llama-lineage, so it cannot count as a new family; shows whether a different tool-call format fixes Llama's runaway episode",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "Llama 3.1 Community License (derived); open-weight",
+      "notes": "Not eligible as a fifth family. Included to inform the Llama exception decision."
+    },
+    {
+      "slug": "llama33-70b",
+      "ollama_tag": "llama3.3:70b",
+      "family": "llama",
+      "vendor": "Meta",
+      "plan_entry": "Week 12 scale extension: the 70B counterpart of llama3.1:8b, so protection can be compared across model size within one family",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "Llama 3.3 Community License (custom, not OSI) -> call it open-weight",
+      "notes": "~43 GB at Q4_K_M; fits one 80 GB A100 with a 32K KV cache (roughly 51 GB total). Not yet piloted: must pass the same >=98% evaluable gate as every other model before any campaign run."
+    },
+    {
+      "slug": "gpt-oss-20b",
+      "ollama_tag": "gpt-oss:20b",
+      "family": "gpt-oss",
+      "vendor": "OpenAI",
+      "plan_entry": "Week 12 new family: OpenAI open-weight reasoning model with native tool calling",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card (Apache-2.0 expected)",
+      "notes": "~14 GB. A reasoning model: the thinking-control probe decides whether reasoning can be held fixed across the comparison; if it cannot be disabled, record the reasoning level used rather than hiding it. Not yet piloted."
+    },
+    {
+      "slug": "glm4-9b",
+      "ollama_tag": "glm4:9b",
+      "family": "glm",
+      "vendor": "Zhipu AI",
+      "plan_entry": "Week 12 round 3: new family (GLM), non-reasoning",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "GLM-4 licence; verify on model card",
+      "notes": "~5.5 GB. Tag may be superseded by a newer GLM; the pull and capability probe decide."
+    },
+    {
+      "slug": "command-r-35b",
+      "ollama_tag": "command-r:latest",
+      "family": "cohere",
+      "vendor": "Cohere",
+      "plan_entry": "Week 12 round 3: new family (Cohere, full 35B)",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "CC-BY-NC (non-commercial): fine for research, state it when reporting",
+      "notes": "~20 GB. Its 7B sibling (command-r7b) emitted 0 structured tool calls in Week 7, so this may fail the same way."
+    },
+    {
+      "slug": "deepseek-v2-16b",
+      "ollama_tag": "deepseek-v2:16b",
+      "family": "deepseek",
+      "vendor": "DeepSeek",
+      "plan_entry": "Week 12 round 3: new family (DeepSeek MoE Lite), non-reasoning",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "DeepSeek licence; verify on model card",
+      "notes": "~9 GB. NOT deepseek-v2.5 (236B, far too large). Native tool support on Ollama is uncertain; the capability preflight decides."
+    },
+    {
+      "slug": "lfm2-24b",
+      "ollama_tag": "lfm2:24b",
+      "family": "liquid",
+      "vendor": "Liquid AI",
+      "plan_entry": "Week 12 round 4: new family",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card",
+      "notes": "~14 GB. Tools badge, no thinking badge. Non-transformer-style hybrid architecture."
+    },
+    {
+      "slug": "rnj-1-8b",
+      "ollama_tag": "rnj-1:8b",
+      "family": "essential",
+      "vendor": "Essential AI",
+      "plan_entry": "Week 12 round 4: new family",
+      "expected_tools": true,
+      "expected_thinking_toggle": false,
+      "license_note": "verify on model card",
+      "notes": "~5 GB. Tools badge, no thinking badge."
+    },
+    {
+      "slug": "olmo-3-7b",
+      "ollama_tag": "olmo-3:7b",
+      "family": "olmo",
+      "vendor": "Allen Institute for AI",
+      "plan_entry": "Week 12 round 4: new family",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "~5 GB. Fully open model (weights, data, code). Thinking badge: the thinking-control probe decides."
+    },
+    {
+      "slug": "nemotron-3-nano-30b",
+      "ollama_tag": "nemotron-3-nano:30b",
+      "family": "nemotron",
+      "vendor": "NVIDIA",
+      "plan_entry": "Week 12 round 4: new family",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "~24 GB, 3B active (MoE). Thinking badge: the thinking-control probe decides. NVIDIA's own family, not a Llama tune."
+    },
+    {
+      "slug": "glm-47-flash",
+      "ollama_tag": "glm-4.7-flash:latest",
+      "family": "glm",
+      "vendor": "Z.ai",
+      "plan_entry": "Week 12 round 4: new family",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "~19 GB, 30B class. Thinking badge: the thinking-control probe decides. Explicit :latest tag: the harness health check compares tag names exactly and Ollama lists an untagged pull as <name>:latest."
+    },
+    {
+      "slug": "laguna-xs2",
+      "ollama_tag": "laguna-xs.2:latest",
+      "family": "laguna",
+      "vendor": "Poolside",
+      "plan_entry": "Week 12 round 5: new family, newer Ollama engine",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "Apache-2.0 (per library page)",
+      "notes": "33B MoE (3B active), 23 GB. Library page: thinking can be enabled/disabled per request. Explicit :latest tag: the harness health check compares tag names exactly and Ollama lists an untagged pull as <name>:latest."
+    },
+    {
+      "slug": "flint-40b",
+      "ollama_tag": "flint:latest",
+      "family": "flint",
+      "vendor": "Recursive",
+      "plan_entry": "Week 12 round 5: new family, newer Ollama engine",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "Apache-2.0 (per library page)",
+      "notes": "39.8B MoE (2.5B active), 23 GB, built for coding agents. Thinking toggle not documented; the probe decides. Explicit :latest tag: the harness health check compares tag names exactly and Ollama lists an untagged pull as <name>:latest."
+    },
+    {
+      "slug": "north-mini-code",
+      "ollama_tag": "north-mini-code-1.0:latest",
+      "family": "cohere-north",
+      "vendor": "Cohere",
+      "plan_entry": "Week 12 round 5: new family, newer Ollama engine",
+      "expected_tools": true,
+      "expected_thinking_toggle": true,
+      "license_note": "verify on model card",
+      "notes": "30B MoE (3B active), tools+thinking. Different line from command-r (excluded in round 3). Tag name unverified; a missing tag is skipped. Explicit :latest tag: the harness health check compares tag names exactly and Ollama lists an untagged pull as <name>:latest."
+    }
+  ]
+}

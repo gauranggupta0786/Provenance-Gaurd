@@ -1,0 +1,607 @@
+{
+  "agentdojo_version": "0.1.35",
+  "benchmark_version": "v1.2.2",
+  "suite": "workspace",
+  "tools": [
+    {
+      "agentdojo_name": "send_email",
+      "canonical_tool": "workspace_send_email",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "attachments": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The list of attachments to include in the email. If `null`, no attachments are included.\nIf the attachment has as \"type\" \"file\", then it is expected to have a field \"file_id\", with the ID of the file in the\ncloud drive. If the attachment has as \"type\" \"event\", then it is expected to be a calendar event in the field \"event_details\".\nA calendar event has the following fields: `title`, `description`, `start_time` (in ISO format), `end_time`\n(in ISO format), `location`, and participants (a list of emails).",
+            "title": "Attachments"
+          },
+          "bcc": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The list of email addresses to include in the BCC field. If `null`, no email addresses are included.",
+            "title": "Bcc"
+          },
+          "body": {
+            "description": "The body of the email.",
+            "title": "Body",
+            "type": "string"
+          },
+          "cc": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The list of email addresses to include in the CC field. If `null`, no email addresses are included.",
+            "title": "Cc"
+          },
+          "recipients": {
+            "description": "The list with the email addresses of the recipients.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Recipients",
+            "type": "array"
+          },
+          "subject": {
+            "description": "The subject of the email.",
+            "title": "Subject",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recipients",
+          "subject",
+          "body"
+        ],
+        "title": "Input schema for `send_email`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "delete_email",
+      "canonical_tool": "workspace_delete_email",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "email_id": {
+            "description": "The id of the email to delete.",
+            "title": "Email Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email_id"
+        ],
+        "title": "Input schema for `delete_email`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_unread_emails",
+      "canonical_tool": "workspace_get_unread_emails",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `get_unread_emails`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_sent_emails",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `get_sent_emails`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_received_emails",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `get_received_emails`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_draft_emails",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `get_draft_emails`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_emails",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "query": {
+            "description": "The query to search for in the email subject or body. If empty, all emails are returned.",
+            "title": "Query",
+            "type": "string"
+          },
+          "sender": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The email address of the sender. If `null`, all emails are searched. Use `search_contacts_by_name`\nif the email address is unknown.",
+            "title": "Sender"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Input schema for `search_emails`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_contacts_by_name",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "query": {
+            "description": "The name of the contacts to search for.",
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Input schema for `search_contacts_by_name`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_contacts_by_email",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "query": {
+            "description": "The email of the contacts to search for.",
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Input schema for `search_contacts_by_email`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_current_day",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `get_current_day`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_calendar_events",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date for which to search events. Must be in format YYYY-MM-DD. If `null`, searches all events.",
+            "title": "Date"
+          },
+          "query": {
+            "description": "The query string to search for in event titles and descriptions.",
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Input schema for `search_calendar_events`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_day_calendar_events",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "day": {
+            "description": "The day for which to return the appointments. Must be in format YYYY-MM-DD.",
+            "title": "Day",
+            "type": "string"
+          }
+        },
+        "required": [
+          "day"
+        ],
+        "title": "Input schema for `get_day_calendar_events`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "create_calendar_event",
+      "canonical_tool": "workspace_create_calendar_event",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "description": {
+            "default": "",
+            "description": "The description of the event.",
+            "title": "Description",
+            "type": "string"
+          },
+          "end_time": {
+            "description": "The end time of the event. Must be in format YYYY-MM-DD HH:MM.",
+            "title": "End Time",
+            "type": "string"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location of the event. If `null`, no location is set.",
+            "title": "Location"
+          },
+          "participants": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The list of participants' email addresses. If `null`, no participants are set. The calendar owner's email address is always included..",
+            "title": "Participants"
+          },
+          "start_time": {
+            "description": "The start time of the event. Must be in format YYYY-MM-DD HH:MM.",
+            "title": "Start Time",
+            "type": "string"
+          },
+          "title": {
+            "description": "The title of the event.",
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "start_time",
+          "end_time"
+        ],
+        "title": "Input schema for `create_calendar_event`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "cancel_calendar_event",
+      "canonical_tool": "workspace_cancel_calendar_event",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "event_id": {
+            "description": "The ID of the event to cancel.",
+            "title": "Event Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id"
+        ],
+        "title": "Input schema for `cancel_calendar_event`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "reschedule_calendar_event",
+      "canonical_tool": "workspace_reschedule_calendar_event",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "event_id": {
+            "description": "The ID of the event to reschedule.",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "new_end_time": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The new end time of the event. Must be in format YYYY-MM-DD HH:MM.\nIf `null`, the end time will be computed based on the new start time to keep the event duration the same.",
+            "title": "New End Time"
+          },
+          "new_start_time": {
+            "description": "The new start time of the event. Must be in format YYYY-MM-DD HH:MM.",
+            "title": "New Start Time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "new_start_time"
+        ],
+        "title": "Input schema for `reschedule_calendar_event`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "add_calendar_event_participants",
+      "canonical_tool": "workspace_add_calendar_event_participants",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "event_id": {
+            "description": "The ID of the event to add participants to.",
+            "title": "Event Id",
+            "type": "string"
+          },
+          "participants": {
+            "description": "The list of participants' email addresses to add to the event.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Participants",
+            "type": "array"
+          }
+        },
+        "required": [
+          "event_id",
+          "participants"
+        ],
+        "title": "Input schema for `add_calendar_event_participants`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "append_to_file",
+      "canonical_tool": "workspace_append_to_file",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "content": {
+            "description": "The content to append to the file.",
+            "title": "Content",
+            "type": "string"
+          },
+          "file_id": {
+            "description": "The ID of the file to append content to.",
+            "title": "File Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file_id",
+          "content"
+        ],
+        "title": "Input schema for `append_to_file`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_files_by_filename",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "filename": {
+            "description": "The name of the file to retrieve.",
+            "title": "Filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename"
+        ],
+        "title": "Input schema for `search_files_by_filename`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "create_file",
+      "canonical_tool": "workspace_create_file",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "content": {
+            "description": "The content of the file to create.",
+            "title": "Content",
+            "type": "string"
+          },
+          "filename": {
+            "description": "The name of the file to create.",
+            "title": "Filename",
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename",
+          "content"
+        ],
+        "title": "Input schema for `create_file`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "delete_file",
+      "canonical_tool": "workspace_delete_file",
+      "classification": "state_changing",
+      "schema": {
+        "properties": {
+          "file_id": {
+            "description": "The name of the file to delete.",
+            "title": "File Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file_id"
+        ],
+        "title": "Input schema for `delete_file`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "get_file_by_id",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "file_id": {
+            "description": "The ID of the file to retrieve.",
+            "title": "File Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file_id"
+        ],
+        "title": "Input schema for `get_file_by_id`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "list_files",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {},
+        "title": "Input schema for `list_files`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "share_file",
+      "canonical_tool": "workspace_share_file",
+      "classification": "state_changing",
+      "schema": {
+        "$defs": {
+          "SharingPermission": {
+            "enum": [
+              "r",
+              "rw"
+            ],
+            "title": "SharingPermission",
+            "type": "string"
+          }
+        },
+        "properties": {
+          "email": {
+            "description": "The email of the user to share the file with.",
+            "title": "Email",
+            "type": "string"
+          },
+          "file_id": {
+            "description": "The ID of the file to share.",
+            "title": "File Id",
+            "type": "string"
+          },
+          "permission": {
+            "$ref": "#/$defs/SharingPermission",
+            "description": "The permission level to grant the user."
+          }
+        },
+        "required": [
+          "file_id",
+          "email",
+          "permission"
+        ],
+        "title": "Input schema for `share_file`",
+        "type": "object"
+      }
+    },
+    {
+      "agentdojo_name": "search_files",
+      "canonical_tool": null,
+      "classification": "read_only",
+      "schema": {
+        "properties": {
+          "query": {
+            "description": "The string to search for in the files.",
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Input schema for `search_files`",
+        "type": "object"
+      }
+    }
+  ]
+}

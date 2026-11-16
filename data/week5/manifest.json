@@ -1,0 +1,49 @@
+{
+  "agentdojo_version": "0.1.35",
+  "benchmark_version": "v1.2.2",
+  "development": {
+    "count": 40,
+    "sha256": "33fb2af3f776bf8b55b17373d58e6443a1a55e9ef30e91e2819949c2d8122eb8"
+  },
+  "evaluation": "final AgentDojo simulated state; model prose is not an outcome",
+  "guidance_levels": [
+    "easy",
+    "medium",
+    "hard"
+  ],
+  "heldout": {
+    "count": 100,
+    "frozen": true,
+    "sha256": "80e9d21dc9620f42d5d76cd3cef1e628f2ca84b944bc8ed6bda6ff05b6374daa"
+  },
+  "heldout_composition": {
+    "approval_deception": 5,
+    "attack": 50,
+    "benign": 50,
+    "composite": 5,
+    "direct": 5,
+    "indirect": 5,
+    "tip": 30
+  },
+  "manifest_sha256": "dafa615b97377a83d5f59c4cf91c5e0a0c507282e6268d0a176ad118ebf261a1",
+  "manifest_version": "week5-v1",
+  "model": "qwen3.5:9b",
+  "seed_policy": [
+    42,
+    314,
+    2718
+  ],
+  "suite": "workspace",
+  "tip_forms": [
+    "caesar",
+    "morse",
+    "vigenere",
+    "atbash",
+    "phonetic",
+    "t9",
+    "base64",
+    "binary",
+    "riddle",
+    "python"
+  ]
+}

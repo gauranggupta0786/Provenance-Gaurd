@@ -1,0 +1,238 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "properties": {
+    "chat_template": {
+      "maxLength": 65536,
+      "minLength": 1,
+      "title": "Chat Template",
+      "type": "string"
+    },
+    "chat_template_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Chat Template Sha256",
+      "type": "string"
+    },
+    "endpoint": {
+      "maxLength": 2048,
+      "minLength": 8,
+      "title": "Endpoint",
+      "type": "string"
+    },
+    "extra_options": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "maxProperties": 64,
+      "propertyNames": {
+        "maxLength": 160,
+        "minLength": 1
+      },
+      "title": "Extra Options",
+      "type": "object"
+    },
+    "infrastructure_retries": {
+      "enum": [
+        0,
+        1
+      ],
+      "title": "Infrastructure Retries",
+      "type": "integer"
+    },
+    "max_output_tokens": {
+      "exclusiveMinimum": 0,
+      "maximum": 65536,
+      "title": "Max Output Tokens",
+      "type": "integer"
+    },
+    "min_p": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Min P",
+      "type": "number"
+    },
+    "model_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Model Digest",
+      "type": "string"
+    },
+    "model_family": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Model Family",
+      "type": "string"
+    },
+    "model_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Model Id",
+      "type": "string"
+    },
+    "model_timeout_seconds": {
+      "exclusiveMinimum": 0.0,
+      "maximum": 3600.0,
+      "title": "Model Timeout Seconds",
+      "type": "number"
+    },
+    "native_context_length": {
+      "exclusiveMinimum": 0,
+      "title": "Native Context Length",
+      "type": "integer"
+    },
+    "numerical_precision": {
+      "maxLength": 256,
+      "minLength": 1,
+      "title": "Numerical Precision",
+      "type": "string"
+    },
+    "parameter_count": {
+      "exclusiveMinimum": 0,
+      "title": "Parameter Count",
+      "type": "integer"
+    },
+    "profile_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Profile Id",
+      "type": "string"
+    },
+    "provider": {
+      "enum": [
+        "ollama-native",
+        "openai-compatible"
+      ],
+      "title": "Provider",
+      "type": "string"
+    },
+    "quantization": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Quantization",
+      "type": "string"
+    },
+    "retry_policy": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Retry Policy",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "model-profile-v1",
+      "default": "model-profile-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed": {
+      "minimum": 0,
+      "title": "Seed",
+      "type": "integer"
+    },
+    "selected_context_length": {
+      "exclusiveMinimum": 0,
+      "title": "Selected Context Length",
+      "type": "integer"
+    },
+    "serving_engine": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Serving Engine",
+      "type": "string"
+    },
+    "serving_engine_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Serving Engine Version",
+      "type": "string"
+    },
+    "stop_sequences": {
+      "items": {
+        "maxLength": 256,
+        "type": "string"
+      },
+      "maxItems": 64,
+      "title": "Stop Sequences",
+      "type": "array"
+    },
+    "system_role": {
+      "default": "system",
+      "enum": [
+        "system",
+        "developer"
+      ],
+      "title": "System Role",
+      "type": "string"
+    },
+    "temperature": {
+      "maximum": 2.0,
+      "minimum": 0.0,
+      "title": "Temperature",
+      "type": "number"
+    },
+    "thinking_capability": {
+      "title": "Thinking Capability",
+      "type": "boolean"
+    },
+    "thinking_mode": {
+      "enum": [
+        "disabled",
+        "enabled",
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Thinking Mode",
+      "type": "string"
+    },
+    "tool_call_format": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Tool Call Format",
+      "type": "string"
+    },
+    "top_k": {
+      "minimum": 0,
+      "title": "Top K",
+      "type": "integer"
+    },
+    "top_p": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Top P",
+      "type": "number"
+    }
+  },
+  "required": [
+    "profile_id",
+    "model_id",
+    "model_digest",
+    "model_family",
+    "parameter_count",
+    "serving_engine",
+    "serving_engine_version",
+    "provider",
+    "endpoint",
+    "quantization",
+    "numerical_precision",
+    "chat_template",
+    "chat_template_sha256",
+    "tool_call_format",
+    "native_context_length",
+    "selected_context_length",
+    "thinking_capability",
+    "thinking_mode",
+    "temperature",
+    "top_p",
+    "top_k",
+    "min_p",
+    "seed",
+    "max_output_tokens",
+    "stop_sequences",
+    "model_timeout_seconds",
+    "retry_policy",
+    "infrastructure_retries"
+  ],
+  "title": "ModelProfile",
+  "type": "object"
+}

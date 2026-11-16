@@ -1,0 +1,37 @@
+{
+  "architecture": "granitehybrid",
+  "capabilities": [
+    "completion",
+    "tools"
+  ],
+  "default_parameters_text": null,
+  "details": {
+    "families": [
+      "granitehybrid"
+    ],
+    "family": "granitehybrid",
+    "format": "gguf",
+    "parameter_size": "32.2B",
+    "parent_model": "/Users/runner/.ollama/models/blobs/sha256-23c6019f2e6fa56eb8872ecf8d9d1e4b2ebf3c087fb5275257ea07602d2a38b6",
+    "quantization_level": "Q4_K_M"
+  },
+  "has_native_tools": true,
+  "has_thinking": false,
+  "license_head": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n ",
+  "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "modelfile_sha256": "5a3b36fd262ce60c860b81dabf197df0231c4f00b8e329cdd90ec3e1a4b3f805",
+  "modified_at": "2026-10-14T08:05:31.585951468+05:30",
+  "ollama_tag": "granite4:small-h",
+  "parser": null,
+  "profile_sha256": "251a1260ea5acb83d33d96cc81819b94d96be3746323f39475406d066402c3bb",
+  "renderer": null,
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "granite4-small-h",
+  "template_is_passthrough": false,
+  "template_sha256": "0f6ec9740c765c3fb0dc38fe25f4d283c3bc1ede32b76f81c3a971daef20f76c"
+}

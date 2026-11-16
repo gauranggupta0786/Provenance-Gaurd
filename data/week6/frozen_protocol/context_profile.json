@@ -1,0 +1,730 @@
+{
+  "candidate_buckets": [
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "dataset_scenarios_profiled": 100,
+  "fixed_tool_system_overhead_tokens": 3159,
+  "frozen_initial_context_upper_bounds": {
+    "count": 100,
+    "max": 4193,
+    "median": 3286,
+    "min": 3237,
+    "p95": 3825,
+    "values": [
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3237,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3251,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3254,
+      3258,
+      3258,
+      3258,
+      3258,
+      3258,
+      3273,
+      3273,
+      3273,
+      3273,
+      3273,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3286,
+      3349,
+      3353,
+      3353,
+      3355,
+      3361,
+      3365,
+      3365,
+      3367,
+      3370,
+      3370,
+      3370,
+      3370,
+      3370,
+      3382,
+      3385,
+      3385,
+      3385,
+      3385,
+      3385,
+      3386,
+      3386,
+      3388,
+      3388,
+      3400,
+      3420,
+      3421,
+      3432,
+      3453,
+      3594,
+      3606,
+      3627,
+      3747,
+      3759,
+      3780,
+      3825,
+      3837,
+      3858,
+      4160,
+      4172,
+      4193
+    ]
+  },
+  "max_output_tokens": 2048,
+  "method": "native Qwen prompt_eval_count for retained calls plus byte-fallback upper bound for every frozen scenario plus the two largest read-tool outputs (Week 7 revision)",
+  "no_truncation_rule": "reject episodes exceeding the selected bucket; never truncate benchmark content",
+  "observed_dynamic_growth_reserve_tokens": 468,
+  "observed_episode_max_prompt_tokens": {
+    "count": 21,
+    "max": 3701,
+    "median": 3418,
+    "min": 3279,
+    "p95": 3699,
+    "values": [
+      3279,
+      3288,
+      3305,
+      3307,
+      3317,
+      3318,
+      3380,
+      3389,
+      3390,
+      3399,
+      3418,
+      3418,
+      3418,
+      3429,
+      3429,
+      3491,
+      3500,
+      3588,
+      3590,
+      3699,
+      3701
+    ]
+  },
+  "observed_prompt_tokens": {
+    "count": 42,
+    "max": 3701,
+    "median": 3275,
+    "min": 3122,
+    "p95": 3590,
+    "values": [
+      3122,
+      3122,
+      3128,
+      3128,
+      3128,
+      3128,
+      3129,
+      3129,
+      3160,
+      3160,
+      3237,
+      3237,
+      3243,
+      3243,
+      3243,
+      3243,
+      3243,
+      3244,
+      3244,
+      3275,
+      3275,
+      3279,
+      3288,
+      3305,
+      3307,
+      3317,
+      3318,
+      3380,
+      3389,
+      3390,
+      3399,
+      3418,
+      3418,
+      3418,
+      3429,
+      3429,
+      3491,
+      3500,
+      3588,
+      3590,
+      3699,
+      3701
+    ]
+  },
+  "per_scenario": [
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-001",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-002",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-003",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-004",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-005",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-006",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-007",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-008",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-009",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-010",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-011",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-012",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-013",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-014",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-015",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-016",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-017",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-018",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-019",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-020",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-021",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-022",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-023",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-024",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-025",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-026",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-027",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-028",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-029",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-030",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-031",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-032",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-033",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-034",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-035",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-036",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-037",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-038",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-039",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-040",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-041",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-042",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-043",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-044",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-045",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-046",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3286,
+      "scenario_id": "heldout-benign-047",
+      "utf8_bytes": 127
+    },
+    {
+      "initial_context_token_upper_bound": 3237,
+      "scenario_id": "heldout-benign-048",
+      "utf8_bytes": 78
+    },
+    {
+      "initial_context_token_upper_bound": 3254,
+      "scenario_id": "heldout-benign-049",
+      "utf8_bytes": 95
+    },
+    {
+      "initial_context_token_upper_bound": 3251,
+      "scenario_id": "heldout-benign-050",
+      "utf8_bytes": 92
+    },
+    {
+      "initial_context_token_upper_bound": 3365,
+      "scenario_id": "heldout-tip-caesar-easy",
+      "utf8_bytes": 206
+    },
+    {
+      "initial_context_token_upper_bound": 3353,
+      "scenario_id": "heldout-tip-caesar-medium",
+      "utf8_bytes": 194
+    },
+    {
+      "initial_context_token_upper_bound": 3386,
+      "scenario_id": "heldout-tip-caesar-hard",
+      "utf8_bytes": 227
+    },
+    {
+      "initial_context_token_upper_bound": 3606,
+      "scenario_id": "heldout-tip-morse-easy",
+      "utf8_bytes": 447
+    },
+    {
+      "initial_context_token_upper_bound": 3594,
+      "scenario_id": "heldout-tip-morse-medium",
+      "utf8_bytes": 435
+    },
+    {
+      "initial_context_token_upper_bound": 3627,
+      "scenario_id": "heldout-tip-morse-hard",
+      "utf8_bytes": 468
+    },
+    {
+      "initial_context_token_upper_bound": 3367,
+      "scenario_id": "heldout-tip-vigenere-easy",
+      "utf8_bytes": 208
+    },
+    {
+      "initial_context_token_upper_bound": 3355,
+      "scenario_id": "heldout-tip-vigenere-medium",
+      "utf8_bytes": 196
+    },
+    {
+      "initial_context_token_upper_bound": 3388,
+      "scenario_id": "heldout-tip-vigenere-hard",
+      "utf8_bytes": 229
+    },
+    {
+      "initial_context_token_upper_bound": 3365,
+      "scenario_id": "heldout-tip-atbash-easy",
+      "utf8_bytes": 206
+    },
+    {
+      "initial_context_token_upper_bound": 3353,
+      "scenario_id": "heldout-tip-atbash-medium",
+      "utf8_bytes": 194
+    },
+    {
+      "initial_context_token_upper_bound": 3386,
+      "scenario_id": "heldout-tip-atbash-hard",
+      "utf8_bytes": 227
+    },
+    {
+      "initial_context_token_upper_bound": 3837,
+      "scenario_id": "heldout-tip-phonetic-easy",
+      "utf8_bytes": 678
+    },
+    {
+      "initial_context_token_upper_bound": 3825,
+      "scenario_id": "heldout-tip-phonetic-medium",
+      "utf8_bytes": 666
+    },
+    {
+      "initial_context_token_upper_bound": 3858,
+      "scenario_id": "heldout-tip-phonetic-hard",
+      "utf8_bytes": 699
+    },
+    {
+      "initial_context_token_upper_bound": 3361,
+      "scenario_id": "heldout-tip-t9-easy",
+      "utf8_bytes": 202
+    },
+    {
+      "initial_context_token_upper_bound": 3349,
+      "scenario_id": "heldout-tip-t9-medium",
+      "utf8_bytes": 190
+    },
+    {
+      "initial_context_token_upper_bound": 3382,
+      "scenario_id": "heldout-tip-t9-hard",
+      "utf8_bytes": 223
+    },
+    {
+      "initial_context_token_upper_bound": 3400,
+      "scenario_id": "heldout-tip-base64-easy",
+      "utf8_bytes": 241
+    },
+    {
+      "initial_context_token_upper_bound": 3388,
+      "scenario_id": "heldout-tip-base64-medium",
+      "utf8_bytes": 229
+    },
+    {
+      "initial_context_token_upper_bound": 3421,
+      "scenario_id": "heldout-tip-base64-hard",
+      "utf8_bytes": 262
+    },
+    {
+      "initial_context_token_upper_bound": 4172,
+      "scenario_id": "heldout-tip-binary-easy",
+      "utf8_bytes": 1013
+    },
+    {
+      "initial_context_token_upper_bound": 4160,
+      "scenario_id": "heldout-tip-binary-medium",
+      "utf8_bytes": 1001
+    },
+    {
+      "initial_context_token_upper_bound": 4193,
+      "scenario_id": "heldout-tip-binary-hard",
+      "utf8_bytes": 1034
+    },
+    {
+      "initial_context_token_upper_bound": 3432,
+      "scenario_id": "heldout-tip-riddle-easy",
+      "utf8_bytes": 273
+    },
+    {
+      "initial_context_token_upper_bound": 3420,
+      "scenario_id": "heldout-tip-riddle-medium",
+      "utf8_bytes": 261
+    },
+    {
+      "initial_context_token_upper_bound": 3453,
+      "scenario_id": "heldout-tip-riddle-hard",
+      "utf8_bytes": 294
+    },
+    {
+      "initial_context_token_upper_bound": 3759,
+      "scenario_id": "heldout-tip-python-easy",
+      "utf8_bytes": 600
+    },
+    {
+      "initial_context_token_upper_bound": 3747,
+      "scenario_id": "heldout-tip-python-medium",
+      "utf8_bytes": 588
+    },
+    {
+      "initial_context_token_upper_bound": 3780,
+      "scenario_id": "heldout-tip-python-hard",
+      "utf8_bytes": 621
+    },
+    {
+      "initial_context_token_upper_bound": 3258,
+      "scenario_id": "heldout-direct-01",
+      "utf8_bytes": 99
+    },
+    {
+      "initial_context_token_upper_bound": 3370,
+      "scenario_id": "heldout-indirect-01",
+      "utf8_bytes": 211
+    },
+    {
+      "initial_context_token_upper_bound": 3273,
+      "scenario_id": "heldout-approval-01",
+      "utf8_bytes": 114
+    },
+    {
+      "initial_context_token_upper_bound": 3385,
+      "scenario_id": "heldout-composite-01",
+      "utf8_bytes": 226
+    },
+    {
+      "initial_context_token_upper_bound": 3258,
+      "scenario_id": "heldout-direct-02",
+      "utf8_bytes": 99
+    },
+    {
+      "initial_context_token_upper_bound": 3370,
+      "scenario_id": "heldout-indirect-02",
+      "utf8_bytes": 211
+    },
+    {
+      "initial_context_token_upper_bound": 3273,
+      "scenario_id": "heldout-approval-02",
+      "utf8_bytes": 114
+    },
+    {
+      "initial_context_token_upper_bound": 3385,
+      "scenario_id": "heldout-composite-02",
+      "utf8_bytes": 226
+    },
+    {
+      "initial_context_token_upper_bound": 3258,
+      "scenario_id": "heldout-direct-03",
+      "utf8_bytes": 99
+    },
+    {
+      "initial_context_token_upper_bound": 3370,
+      "scenario_id": "heldout-indirect-03",
+      "utf8_bytes": 211
+    },
+    {
+      "initial_context_token_upper_bound": 3273,
+      "scenario_id": "heldout-approval-03",
+      "utf8_bytes": 114
+    },
+    {
+      "initial_context_token_upper_bound": 3385,
+      "scenario_id": "heldout-composite-03",
+      "utf8_bytes": 226
+    },
+    {
+      "initial_context_token_upper_bound": 3258,
+      "scenario_id": "heldout-direct-04",
+      "utf8_bytes": 99
+    },
+    {
+      "initial_context_token_upper_bound": 3370,
+      "scenario_id": "heldout-indirect-04",
+      "utf8_bytes": 211
+    },
+    {
+      "initial_context_token_upper_bound": 3273,
+      "scenario_id": "heldout-approval-04",
+      "utf8_bytes": 114
+    },
+    {
+      "initial_context_token_upper_bound": 3385,
+      "scenario_id": "heldout-composite-04",
+      "utf8_bytes": 226
+    },
+    {
+      "initial_context_token_upper_bound": 3258,
+      "scenario_id": "heldout-direct-05",
+      "utf8_bytes": 99
+    },
+    {
+      "initial_context_token_upper_bound": 3370,
+      "scenario_id": "heldout-indirect-05",
+      "utf8_bytes": 211
+    },
+    {
+      "initial_context_token_upper_bound": 3273,
+      "scenario_id": "heldout-approval-05",
+      "utf8_bytes": 114
+    },
+    {
+      "initial_context_token_upper_bound": 3385,
+      "scenario_id": "heldout-composite-05",
+      "utf8_bytes": 226
+    }
+  ],
+  "read_tool_output_reserve": {
+    "bytes_per_token_floor": 3.0,
+    "largest_tools": [
+      "list_files",
+      "search_files"
+    ],
+    "reserve_tokens": 16627,
+    "tool_output_bytes": {
+      "get_file_by_id": 2056,
+      "get_received_emails": 9286,
+      "get_sent_emails": 4640,
+      "get_unread_emails": 2535,
+      "list_files": 27692,
+      "search_calendar_events": 8771,
+      "search_emails": 10072,
+      "search_files": 22188,
+      "search_files_by_filename": 21107
+    },
+    "top_n": 2
+  },
+  "required_context_envelope_tokens": 23336,
+  "retained_dynamic_calls_profiled": 42,
+  "schema_version": "token-context-profile-v1",
+  "selected_common_context_bucket": 32768
+}

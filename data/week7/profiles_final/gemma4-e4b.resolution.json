@@ -1,0 +1,41 @@
+{
+  "architecture": "gemma4",
+  "capabilities": [
+    "audio",
+    "completion",
+    "thinking",
+    "tools",
+    "vision"
+  ],
+  "default_parameters_text": "draft_num_predict              3\ntemperature                    1\ntop_k                          64\ntop_p                          0.95",
+  "details": {
+    "families": [
+      "gemma4"
+    ],
+    "family": "gemma4",
+    "format": "gguf",
+    "parameter_size": "7.5B",
+    "parent_model": "gemma4-validation-20260929:e4b-imatrix-attention-q6-q8-draft2",
+    "quantization_level": "Q4_K_M",
+    "runner": "llamacpp"
+  },
+  "has_native_tools": true,
+  "has_thinking": true,
+  "license_head": "                                Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   ",
+  "license_sha256": "7339fa418c9ad3e8e12e74ad0fd26a9cc4be8703f9c110728a992b193be85cb2",
+  "modelfile_sha256": "f463f428eaa9995b8e51f18f3fc0d3cfa9a9839a47fcf9d2df84a90344c2e16f",
+  "modified_at": "2026-10-13T06:21:51.574391437+05:30",
+  "ollama_tag": "gemma4:e4b",
+  "parser": "gemma4",
+  "profile_sha256": "600726dd2e339763db0d08f94f49201de48e642fcdb0518829e370a09423c7c4",
+  "renderer": "gemma4",
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "gemma4-e4b",
+  "template_is_passthrough": true,
+  "template_sha256": "b507b9c2f6ca642bffcd06665ea7c91f235fd32daeefdf875a0f938db05fb315"
+}

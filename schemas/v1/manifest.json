@@ -1,0 +1,77 @@
+{
+  "bundle_sha256": "816b34bc5cac339e4506b5ad62ad85a89ff6ff905c2d32a38e215aced2d52efc",
+  "generator": "pydantic-v2-model_json_schema",
+  "schema_version": "provenanceguard-schema-manifest-v1",
+  "schemas": [
+    {
+      "file": "AgentRunState.schema.json",
+      "model": "AgentRunState",
+      "sha256": "a62681aa39af34c73d3126fcf9443ac9b377e46df914fd59ca20ac73057f0902"
+    },
+    {
+      "file": "ModelProfile.schema.json",
+      "model": "ModelProfile",
+      "sha256": "dfbe805b5a8e6b60f00da802023ff22486bf80ffc2f0483beff817fa468d5b54"
+    },
+    {
+      "file": "ModelCallRecord.schema.json",
+      "model": "ModelCallRecord",
+      "sha256": "86250c82fdd3c971246fc0073e676815659e71657f980a873f3cec0a8f940ce7"
+    },
+    {
+      "file": "ToolIntent.schema.json",
+      "model": "ToolIntent",
+      "sha256": "4d001a4c9c5743eff1d558bb7fe52327a958c49036ec7ce7d07e7293ff64b104"
+    },
+    {
+      "file": "SourceEvidence.schema.json",
+      "model": "SourceEvidence",
+      "sha256": "a0d3cb706a177a389de2dbaa14ffe51d4ff8d2200ed3abc532ac9c397f781e60"
+    },
+    {
+      "file": "PolicyOutcome.schema.json",
+      "model": "PolicyOutcome",
+      "sha256": "ff19253c758bf4b7eb0ff5403f04f31d55a08714c1d054229a7a977bc83b7ca6"
+    },
+    {
+      "file": "ProposalRecord.schema.json",
+      "model": "ProposalRecord",
+      "sha256": "1eea29204f856f9951b52cbe5967399dd21ee19167c8eb4817c85c5c5725b82e"
+    },
+    {
+      "file": "ApprovalRecord.schema.json",
+      "model": "ApprovalRecord",
+      "sha256": "2574090334ddbc41967fffda33edc886f423cd67ab5c45fe3333d36f7aaacc36"
+    },
+    {
+      "file": "ExecutionRecord.schema.json",
+      "model": "ExecutionRecord",
+      "sha256": "f79480e991ed2d1b737a7157e240f78ccd6d7918e41f086f259ed28a8a2a6b89"
+    },
+    {
+      "file": "ReceiptRecord.schema.json",
+      "model": "ReceiptRecord",
+      "sha256": "cdd2223e930813e26cf07bd56124cc571d2911fde7bf6a1a27a9aeb2c49fc3d0"
+    },
+    {
+      "file": "EvaluationRecord.schema.json",
+      "model": "EvaluationRecord",
+      "sha256": "33fdf5172a70068dad556747f04c3ce9303e8b61755da227161fe57c3df41066"
+    },
+    {
+      "file": "NodeDiagnostic.schema.json",
+      "model": "NodeDiagnostic",
+      "sha256": "5ecff6f2041a58660bc3fc6bdcd4126479aee3d7d93449583c76ed7e8e1f403d"
+    },
+    {
+      "file": "SensitivityEvidence.schema.json",
+      "model": "SensitivityEvidence",
+      "sha256": "6eed6492e40d71e20c90ee3ec47a6f3d046c74650eb1e1b06e8d9103735a0a6b"
+    },
+    {
+      "file": "OutputGuardRecord.schema.json",
+      "model": "OutputGuardRecord",
+      "sha256": "d443054a373a5928517733eeef52fcb971ea81b2dd01a663cf05e7d24e8d441e"
+    }
+  ]
+}

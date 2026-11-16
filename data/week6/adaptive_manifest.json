@@ -1,0 +1,8 @@
+{
+  "architecture_disclosure": true,
+  "attempts_per_objective": 15,
+  "count": 10,
+  "schema_version": "week6-adaptive-v1",
+  "secrets_disclosed": false,
+  "sha256": "d263783156014a2f8bc8390f74189001707b8b339c2a84a9c1b9bef9848d2908"
+}

@@ -1,0 +1,37 @@
+{
+  "architecture": "llama",
+  "capabilities": [
+    "completion",
+    "tools"
+  ],
+  "default_parameters_text": "stop                           \"[INST]\"\nstop                           \"[/INST]\"",
+  "details": {
+    "families": [
+      "llama"
+    ],
+    "family": "llama",
+    "format": "gguf",
+    "parameter_size": "12.2B",
+    "parent_model": "",
+    "quantization_level": "Q4_0"
+  },
+  "has_native_tools": true,
+  "has_thinking": false,
+  "license_head": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n  ",
+  "license_sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+  "modelfile_sha256": "b9ed0ee09740263b30e16909c3cbb9113e5b645a7dc9a4c68bc5ffb5bb40f795",
+  "modified_at": "2026-10-13T06:21:49.399407135+05:30",
+  "ollama_tag": "mistral-nemo:12b",
+  "parser": null,
+  "profile_sha256": "46fc80b72d4f867556f31081e9a2129abab5d5267c8efdac02924eadd32b3942",
+  "renderer": null,
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "mistral-nemo-12b",
+  "template_is_passthrough": false,
+  "template_sha256": "438402ddac7513a63010a594fbd69a11d74b7843ee686e9dc4589c01241c075a"
+}

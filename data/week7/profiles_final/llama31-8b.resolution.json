@@ -1,0 +1,37 @@
+{
+  "architecture": "llama",
+  "capabilities": [
+    "completion",
+    "tools"
+  ],
+  "default_parameters_text": "stop                           \"<|start_header_id|>\"\nstop                           \"<|end_header_id|>\"\nstop                           \"<|eot_id|>\"",
+  "details": {
+    "families": [
+      "llama"
+    ],
+    "family": "llama",
+    "format": "gguf",
+    "parameter_size": "8.0B",
+    "parent_model": "",
+    "quantization_level": "Q4_K_M"
+  },
+  "has_native_tools": true,
+  "has_thinking": false,
+  "license_head": "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT\nLlama 3.1 Version Release Date: July 23, 2024\n\n\u201cAgreement\u201d means the terms and conditions for use, reproduction, distribut",
+  "license_sha256": "0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177",
+  "modelfile_sha256": "c69bb7340ac887c689ddd9b624cfa2e9beff7abdaf8a9c362c605da5c19159ce",
+  "modified_at": "2026-10-13T06:21:47.789418756+05:30",
+  "ollama_tag": "llama3.1:8b",
+  "parser": null,
+  "profile_sha256": "ff91da62c76efbbeee8b2d42cc8049890074cb3a790c6c3bfbbe5f8a8dd95698",
+  "renderer": null,
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "llama31-8b",
+  "template_is_passthrough": false,
+  "template_sha256": "948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85"
+}

@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "content_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Content Digest",
+      "type": "string"
+    },
+    "observed_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Observed At",
+      "type": "string"
+    },
+    "raw_evidence_ref": {
+      "anyOf": [
+        {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Raw Evidence Ref"
+    },
+    "schema_version": {
+      "const": "source-evidence-v1",
+      "default": "source-evidence-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_identity": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Source Identity",
+      "type": "string"
+    },
+    "source_type": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Source Type",
+      "type": "string"
+    },
+    "tenant_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Tenant Id",
+      "type": "string"
+    },
+    "trust_label": {
+      "enum": [
+        "trusted",
+        "untrusted"
+      ],
+      "title": "Trust Label",
+      "type": "string"
+    },
+    "version": {
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "source_id",
+    "tenant_id",
+    "source_type",
+    "source_identity",
+    "trust_label",
+    "content_digest",
+    "version",
+    "observed_at"
+  ],
+  "title": "SourceEvidence",
+  "type": "object"
+}

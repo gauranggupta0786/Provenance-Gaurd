@@ -1,0 +1,104 @@
+{
+  "$defs": {
+    "DataSensitivity": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ],
+      "title": "DataSensitivity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authorization_rule": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Authorization Rule",
+      "type": "string"
+    },
+    "evidence_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "field_path": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "title": "Field Path",
+      "type": "string"
+    },
+    "graph_run_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Graph Run Id",
+      "type": "string"
+    },
+    "object_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Object Id",
+      "type": "string"
+    },
+    "observed_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Observed At",
+      "type": "string"
+    },
+    "principal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "read_authorized": {
+      "title": "Read Authorized",
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "sensitivity-evidence-v1",
+      "default": "sensitivity-evidence-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sensitivity": {
+      "$ref": "#/$defs/DataSensitivity"
+    },
+    "source_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_version": {
+      "minimum": 1,
+      "title": "Source Version",
+      "type": "integer"
+    },
+    "value_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Value Digest",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "graph_run_id",
+    "principal_id",
+    "source_id",
+    "source_version",
+    "object_id",
+    "field_path",
+    "value_digest",
+    "sensitivity",
+    "read_authorized",
+    "authorization_rule",
+    "observed_at"
+  ],
+  "title": "SensitivityEvidence",
+  "type": "object"
+}

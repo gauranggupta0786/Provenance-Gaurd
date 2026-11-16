@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Action Digest",
+      "type": "string"
+    },
+    "attempt_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "created_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Created At",
+      "type": "string"
+    },
+    "detail": {
+      "default": "",
+      "maxLength": 16384,
+      "title": "Detail",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "proposal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "result_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Result Digest",
+      "type": "string"
+    },
+    "result_status": {
+      "enum": [
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "title": "Result Status",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "receipt-record-v1",
+      "default": "receipt-record-v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "attempt_id",
+    "proposal_id",
+    "idempotency_key",
+    "action_digest",
+    "result_status",
+    "result_digest",
+    "created_at"
+  ],
+  "title": "ReceiptRecord",
+  "type": "object"
+}

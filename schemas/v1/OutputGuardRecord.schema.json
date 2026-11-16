@@ -1,0 +1,97 @@
+{
+  "$defs": {
+    "OutputGuardDecision": {
+      "enum": [
+        "ALLOW",
+        "REDACT",
+        "BLOCK"
+      ],
+      "title": "OutputGuardDecision",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "$ref": "#/$defs/OutputGuardDecision"
+    },
+    "disclosure_authorized": {
+      "title": "Disclosure Authorized",
+      "type": "boolean"
+    },
+    "evaluated_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Evaluated At",
+      "type": "string"
+    },
+    "graph_run_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Graph Run Id",
+      "type": "string"
+    },
+    "guard_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Guard Id",
+      "type": "string"
+    },
+    "matched_evidence_ids": {
+      "default": [],
+      "items": {
+        "maxLength": 160,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 128,
+      "title": "Matched Evidence Ids",
+      "type": "array"
+    },
+    "matched_value_digests": {
+      "default": [],
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "maxItems": 128,
+      "title": "Matched Value Digests",
+      "type": "array"
+    },
+    "principal_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "response_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Response Digest",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "output-guard-record-v1",
+      "default": "output-guard-record-v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "guard_id",
+    "graph_run_id",
+    "principal_id",
+    "response_digest",
+    "decision",
+    "disclosure_authorized",
+    "reason",
+    "evaluated_at"
+  ],
+  "title": "OutputGuardRecord",
+  "type": "object"
+}

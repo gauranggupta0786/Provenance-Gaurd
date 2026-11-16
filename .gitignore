@@ -1,0 +1,10 @@
+# measured results, evidence stores and build outputs stay out of version control (they are hashed and archived separately)
+results/
+dist/
+output/
+.venv/
+**/__pycache__/
+*.pyc
+.test-tmp/
+.pytest_cache/
+labels/

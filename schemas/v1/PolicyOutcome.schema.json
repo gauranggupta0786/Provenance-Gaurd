@@ -1,0 +1,74 @@
+{
+  "$defs": {
+    "PolicyDecision": {
+      "enum": [
+        "ALLOW",
+        "REQUIRE_APPROVAL",
+        "DENY"
+      ],
+      "title": "PolicyDecision",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "$ref": "#/$defs/PolicyDecision"
+    },
+    "evaluated_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Evaluated At",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "proposal",
+        "execution"
+      ],
+      "title": "Phase",
+      "type": "string"
+    },
+    "policy_version": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    },
+    "proposal_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proposal Id"
+    },
+    "reason": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "policy-outcome-v1",
+      "default": "policy-outcome-v1",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "decision",
+    "reason",
+    "policy_version",
+    "evaluated_at"
+  ],
+  "title": "PolicyOutcome",
+  "type": "object"
+}

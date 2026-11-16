@@ -1,0 +1,179 @@
+{
+ "attack": "important_instructions_ai_assistant",
+ "benchmark_version": "v1.2.2",
+ "configs": {
+  "C0g": {
+   "guard": null,
+   "kind": "pgx",
+   "note": "v2 plumbing, generic policy, approve-all: the control for PG-v4"
+  },
+  "PG-v4": {
+   "guard": {
+    "bypass": true,
+    "capability": "plan",
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": true,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "all v2 changes"
+  },
+  "PG-v4-capParse": {
+   "guard": {
+    "bypass": true,
+    "capability": "parse",
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": true,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "capability from the keyword parser"
+  },
+  "PG-v4-noBypass": {
+   "guard": {
+    "bypass": false,
+    "capability": "plan",
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": true,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "reviewer asked even when licensed"
+  },
+  "PG-v4-noCap": {
+   "guard": {
+    "bypass": true,
+    "capability": null,
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": true,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "no capability layer (so no bypass)"
+  },
+  "PG-v4-noFeedback": {
+   "guard": {
+    "bypass": true,
+    "capability": "plan",
+    "denial_cap": 2,
+    "feedback": false,
+    "numeric": true,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "v1's bare denial message"
+  },
+  "PG-v4-noNum": {
+   "guard": {
+    "bypass": true,
+    "capability": "plan",
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": false,
+    "reviewer": "independent",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "v1 figure rule only"
+  },
+  "PG-v4-self": {
+   "guard": {
+    "bypass": true,
+    "capability": "plan",
+    "denial_cap": 2,
+    "feedback": true,
+    "numeric": true,
+    "reviewer": "self",
+    "scope_fix": true
+   },
+   "kind": "pgx",
+   "note": "reviewer = the agent's own model"
+  },
+  "SCP-v3": {
+   "kind": "v1",
+   "note": "frozen v1 SCP-v3 (v1 allow-list, scope check, prompt v3, provenance)",
+   "suites": [
+    "workspace"
+   ]
+  },
+  "none": {
+   "defense": null,
+   "kind": "stock",
+   "note": "no defense"
+  },
+  "pi_detector": {
+   "defense": "transformers_pi_detector",
+   "kind": "stock",
+   "note": "AgentDojo's ProtectAI DeBERTa detector; needs the model downloaded by hand (optional)"
+  },
+  "repeat_user_prompt": {
+   "defense": "repeat_user_prompt",
+   "kind": "stock",
+   "note": "AgentDojo built-in"
+  },
+  "spotlighting": {
+   "defense": "spotlighting_with_delimiting",
+   "kind": "stock",
+   "note": "AgentDojo built-in"
+  },
+  "tool_filter": {
+   "kind": "toolsel",
+   "note": "re-implementation of AgentDojo's tool_filter with the agent model"
+  },
+  "trace_auditor": {
+   "kind": "auditor",
+   "note": "AlignmentCheck-style auditor (re-implementation), independent model",
+   "reviewer": "independent"
+  }
+ },
+ "files": {
+  "agentdojo_tasks.json": "a8877b152581cb67cf5bb772c212ec68fcfe77d0e5c8d39aa99fd47aa9eed97d",
+  "injections.jsonl": "78e820e6ee773026b4c0a70724020f081f4ea0d09eff80b276ad7e7532648197",
+  "split.json": "09610a3f369a1c2cddda0e4bf5956cd2d309d6a84b68516c0ea7e937f8bb94e1"
+ },
+ "groups": {
+  "ablations": [
+   "PG-v4-capParse",
+   "PG-v4-noCap",
+   "PG-v4-noBypass",
+   "PG-v4-noNum",
+   "PG-v4-noFeedback",
+   "PG-v4-self"
+  ],
+  "baselines": [
+   "spotlighting",
+   "repeat_user_prompt",
+   "tool_filter",
+   "trace_auditor"
+  ],
+  "bridge": [
+   "SCP-v3"
+  ],
+  "core": [
+   "none",
+   "C0g",
+   "PG-v4"
+  ],
+  "frontier": [
+   "none",
+   "PG-v4"
+  ]
+ },
+ "registration": "test-split runs require data/v2/registration.json (scripts/v2_register.py) matching the current code",
+ "schema_version": "pgx-v2-plan-v1",
+ "seed_policy": "seed 42 on every case; seeds 314 and 2718 on the variance subset of test user tasks",
+ "seeds": [
+  42,
+  314,
+  2718
+ ]
+}

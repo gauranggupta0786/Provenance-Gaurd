@@ -1,0 +1,37 @@
+{
+  "architecture": "llama",
+  "capabilities": [
+    "completion",
+    "tools"
+  ],
+  "default_parameters_text": "stop                           \"<|im_start|>\"\nstop                           \"<|im_end|>\"",
+  "details": {
+    "families": [
+      "llama"
+    ],
+    "family": "llama",
+    "format": "gguf",
+    "parameter_size": "8.0B",
+    "parent_model": "",
+    "quantization_level": "Q4_0"
+  },
+  "has_native_tools": true,
+  "has_thinking": false,
+  "license_head": "META LLAMA 3 COMMUNITY LICENSE AGREEMENT\nMeta Llama 3 Version Release Date: April 18, 2024\n\n\u201cAgreement\u201d means the terms and conditions for use, reproduction, di",
+  "license_sha256": "475211637354ce4c14b9c3dacccbefbaba735fe1b0db97d6c4fd11cd1356819f",
+  "modelfile_sha256": "a08e99fea0ad8589220ebb70ae7fc119dbc3577e494c74498d2de9ab3a0504bf",
+  "modified_at": "2026-10-14T08:07:48.633996176+05:30",
+  "ollama_tag": "hermes3:8b",
+  "parser": null,
+  "profile_sha256": "0e9552104dc3c785a054b0fe154935724d8254c6b469594b123b6e63670cadfa",
+  "renderer": null,
+  "schema_version": "week7-profile-resolution-v1",
+  "server": {
+    "flash_attention": "1",
+    "kv_cache_type": "f16",
+    "version": "0.40.2"
+  },
+  "slug": "hermes3-8b",
+  "template_is_passthrough": false,
+  "template_sha256": "c7ec478a7939bd2449e43dde848f31c31bc68b75990d4085ced5ac30f299b24a"
+}

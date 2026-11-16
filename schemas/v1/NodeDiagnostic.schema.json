@@ -1,0 +1,123 @@
+{
+  "$defs": {
+    "WorkflowNode": {
+      "enum": [
+        "START",
+        "LOAD_SCENARIO",
+        "BUILD_CONVERSATION",
+        "CALL_MODEL",
+        "PARSE_TOOL_INTENT",
+        "CLASSIFY_TOOL",
+        "EXECUTE_READ",
+        "LABEL_SOURCES",
+        "VALIDATE_WRITE",
+        "EVALUATE_POLICY",
+        "REJECT_AND_AUDIT",
+        "BUILD_AND_SIGN_PROPOSAL",
+        "OBTAIN_APPROVAL",
+        "GATEWAY_REVALIDATE",
+        "CONSUME_AND_RESERVE",
+        "EXECUTE_ADAPTER",
+        "PERSIST_RECEIPT",
+        "EVALUATE_FINAL_STATE",
+        "END"
+      ],
+      "title": "WorkflowNode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "anyOf": [
+        {
+          "maxLength": 16384,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "error_type": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Type"
+    },
+    "evidence_ref": {
+      "anyOf": [
+        {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Evidence Ref"
+    },
+    "graph_run_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Graph Run Id",
+      "type": "string"
+    },
+    "latency_ms": {
+      "minimum": 0,
+      "title": "Latency Ms",
+      "type": "integer"
+    },
+    "node": {
+      "$ref": "#/$defs/WorkflowNode"
+    },
+    "schema_version": {
+      "const": "graph-node-diagnostic-v1",
+      "default": "graph-node-diagnostic-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "title": "Sequence",
+      "type": "integer"
+    },
+    "started_at": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Started At",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "FAILED",
+        "INTERRUPTED"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_run_id",
+    "node",
+    "sequence",
+    "started_at",
+    "latency_ms",
+    "status"
+  ],
+  "title": "NodeDiagnostic",
+  "type": "object"
+}

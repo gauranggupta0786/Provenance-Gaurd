@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "properties": {
+    "arguments": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "propertyNames": {
+            "maxLength": 160,
+            "minLength": 1
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Arguments"
+    },
+    "call_id": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Call Id",
+      "type": "string"
+    },
+    "parse_error": {
+      "anyOf": [
+        {
+          "maxLength": 16384,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parse Error"
+    },
+    "raw_arguments": {
+      "$ref": "#/$defs/JsonValue"
+    },
+    "schema_version": {
+      "const": "tool-intent-v1",
+      "default": "tool-intent-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_response_id": {
+      "anyOf": [
+        {
+          "maxLength": 160,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Response Id"
+    },
+    "tool_name": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "Tool Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "call_id",
+    "tool_name",
+    "arguments",
+    "raw_arguments"
+  ],
+  "title": "ToolIntent",
+  "type": "object"
+}
